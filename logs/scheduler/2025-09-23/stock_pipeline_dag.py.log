@@ -1,0 +1,67 @@
+[2025-09-23T12:32:46.112+0000] {processor.py:161} INFO - Started process (PID=171) to work on /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:32:46.113+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/stock_pipeline_dag.py for tasks to queue
+[2025-09-23T12:32:46.115+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:32:46.115+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:32:46.146+0000] {processor.py:840} INFO - DAG(s) 'stock_pipeline_dag' retrieved from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:32:46.333+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:32:46.332+0000] {override.py:1829} INFO - Created Permission View: can read on DAG:stock_pipeline_dag
+[2025-09-23T12:32:46.339+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:32:46.339+0000] {override.py:1829} INFO - Created Permission View: can delete on DAG:stock_pipeline_dag
+[2025-09-23T12:32:46.505+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:32:46.505+0000] {override.py:1829} INFO - Created Permission View: can edit on DAG:stock_pipeline_dag
+[2025-09-23T12:32:46.506+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:32:46.506+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-09-23T12:32:46.513+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:32:46.513+0000] {dag.py:3118} INFO - Creating ORM DAG for stock_pipeline_dag
+[2025-09-23T12:32:46.521+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:32:46.520+0000] {dag.py:3954} INFO - Setting next_dagrun for stock_pipeline_dag to 2025-09-22 00:00:00+00:00, run_after=2025-09-23 00:00:00+00:00
+[2025-09-23T12:32:46.536+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/stock_pipeline_dag.py took 0.430 seconds
+[2025-09-23T12:33:16.709+0000] {processor.py:161} INFO - Started process (PID=176) to work on /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:33:16.710+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/stock_pipeline_dag.py for tasks to queue
+[2025-09-23T12:33:16.712+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:33:16.712+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:33:16.739+0000] {processor.py:840} INFO - DAG(s) 'stock_pipeline_dag' retrieved from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:33:16.773+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:33:16.773+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-09-23T12:33:16.791+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:33:16.790+0000] {dag.py:3954} INFO - Setting next_dagrun for stock_pipeline_dag to 2025-09-22 00:00:00+00:00, run_after=2025-09-23 00:00:00+00:00
+[2025-09-23T12:33:16.807+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/stock_pipeline_dag.py took 0.105 seconds
+[2025-09-23T12:33:46.946+0000] {processor.py:161} INFO - Started process (PID=181) to work on /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:33:46.947+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/stock_pipeline_dag.py for tasks to queue
+[2025-09-23T12:33:46.948+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:33:46.948+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:33:46.968+0000] {processor.py:840} INFO - DAG(s) 'stock_pipeline_dag' retrieved from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:33:46.995+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:33:46.995+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-09-23T12:33:47.013+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:33:47.013+0000] {dag.py:3954} INFO - Setting next_dagrun for stock_pipeline_dag to 2025-09-22 00:00:00+00:00, run_after=2025-09-23 00:00:00+00:00
+[2025-09-23T12:33:47.028+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/stock_pipeline_dag.py took 0.086 seconds
+[2025-09-23T12:34:17.099+0000] {processor.py:161} INFO - Started process (PID=186) to work on /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:34:17.099+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/stock_pipeline_dag.py for tasks to queue
+[2025-09-23T12:34:17.101+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:34:17.101+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:34:17.126+0000] {processor.py:840} INFO - DAG(s) 'stock_pipeline_dag' retrieved from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:34:17.156+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:34:17.155+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-09-23T12:34:17.175+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:34:17.174+0000] {dag.py:3954} INFO - Setting next_dagrun for stock_pipeline_dag to 2025-09-22 00:00:00+00:00, run_after=2025-09-23 00:00:00+00:00
+[2025-09-23T12:34:17.191+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/stock_pipeline_dag.py took 0.097 seconds
+[2025-09-23T12:34:47.300+0000] {processor.py:161} INFO - Started process (PID=191) to work on /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:34:47.301+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/stock_pipeline_dag.py for tasks to queue
+[2025-09-23T12:34:47.302+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:34:47.302+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:34:47.321+0000] {processor.py:840} INFO - DAG(s) 'stock_pipeline_dag' retrieved from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:34:47.349+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:34:47.349+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-09-23T12:34:47.367+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:34:47.367+0000] {dag.py:3954} INFO - Setting next_dagrun for stock_pipeline_dag to 2025-09-22 00:00:00+00:00, run_after=2025-09-23 00:00:00+00:00
+[2025-09-23T12:34:47.386+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/stock_pipeline_dag.py took 0.091 seconds
+[2025-09-23T12:35:17.466+0000] {processor.py:161} INFO - Started process (PID=196) to work on /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:35:17.467+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/stock_pipeline_dag.py for tasks to queue
+[2025-09-23T12:35:17.469+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:35:17.468+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:35:17.488+0000] {processor.py:840} INFO - DAG(s) 'stock_pipeline_dag' retrieved from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:35:17.515+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:35:17.514+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-09-23T12:35:17.534+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:35:17.533+0000] {dag.py:3954} INFO - Setting next_dagrun for stock_pipeline_dag to 2025-09-22 00:00:00+00:00, run_after=2025-09-23 00:00:00+00:00
+[2025-09-23T12:35:17.706+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/stock_pipeline_dag.py took 0.245 seconds
+[2025-09-23T12:35:47.864+0000] {processor.py:161} INFO - Started process (PID=201) to work on /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:35:47.865+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/stock_pipeline_dag.py for tasks to queue
+[2025-09-23T12:35:47.867+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:35:47.867+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:35:47.887+0000] {processor.py:840} INFO - DAG(s) 'stock_pipeline_dag' retrieved from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:35:47.915+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:35:47.915+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-09-23T12:35:48.078+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:35:48.078+0000] {dag.py:3954} INFO - Setting next_dagrun for stock_pipeline_dag to 2025-09-22 00:00:00+00:00, run_after=2025-09-23 00:00:00+00:00
+[2025-09-23T12:35:48.093+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/stock_pipeline_dag.py took 0.233 seconds
+[2025-09-23T12:36:18.239+0000] {processor.py:161} INFO - Started process (PID=206) to work on /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:36:18.240+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/stock_pipeline_dag.py for tasks to queue
+[2025-09-23T12:36:18.241+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:36:18.241+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:36:18.260+0000] {processor.py:840} INFO - DAG(s) 'stock_pipeline_dag' retrieved from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:36:18.431+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:36:18.431+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-09-23T12:36:18.444+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:36:18.444+0000] {dag.py:3954} INFO - Setting next_dagrun for stock_pipeline_dag to 2025-09-22 00:00:00+00:00, run_after=2025-09-23 00:00:00+00:00
+[2025-09-23T12:36:18.457+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/stock_pipeline_dag.py took 0.222 seconds
+[2025-09-23T12:36:48.617+0000] {processor.py:161} INFO - Started process (PID=211) to work on /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:36:48.618+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/stock_pipeline_dag.py for tasks to queue
+[2025-09-23T12:36:48.620+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:36:48.620+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:36:48.641+0000] {processor.py:840} INFO - DAG(s) 'stock_pipeline_dag' retrieved from /opt/airflow/dags/stock_pipeline_dag.py
+[2025-09-23T12:36:48.845+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:36:48.844+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-09-23T12:36:48.864+0000] {logging_mixin.py:188} INFO - [2025-09-23T12:36:48.863+0000] {dag.py:3954} INFO - Setting next_dagrun for stock_pipeline_dag to 2025-09-22 00:00:00+00:00, run_after=2025-09-23 00:00:00+00:00
+[2025-09-23T12:36:48.883+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/stock_pipeline_dag.py took 0.272 seconds

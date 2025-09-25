@@ -1,0 +1,144 @@
+version: '3.8'
+
+services:
+  postgres-airflow:
+    image: postgres:15
+    container_name: postgres-airflow
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - airflow_postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow -d airflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres-stock:
+    image: postgres:15
+    container_name: postgres-stock
+    environment:
+      POSTGRES_USER: ${STOCK_DB_USER}
+      POSTGRES_PASSWORD: ${STOCK_DB_PASSWORD}
+      POSTGRES_DB: ${STOCK_DB_NAME}
+    volumes:
+      - stock_postgres_data:/var/lib/postgresql/data
+      - ./db/init_stock.sql:/docker-entrypoint-initdb.d/init_stock.sql:ro
+    ports:
+      - "5434:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${STOCK_DB_USER} -d ${STOCK_DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  airflow-init:
+    build:
+      context: .
+      dockerfile: ./docker/airflow/Dockerfile
+    image: custom-airflow:latest
+    container_name: airflow-init
+    depends_on:
+      postgres-airflow:
+        condition: service_healthy
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow:5432/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'False'
+      _AIRFLOW_DB_UPGRADE: 'true'
+      _AIRFLOW_WWW_USER_CREATE: 'true'
+      _AIRFLOW_WWW_USER_USERNAME: ${AIRFLOW_ADMIN_USERNAME}
+      _AIRFLOW_WWW_USER_PASSWORD: ${AIRFLOW_ADMIN_PASSWORD}
+      AIRFLOW_UID: 50000
+      # Pass through for DAG use
+      ALPHAVANTAGE_API_KEY: ${ALPHAVANTAGE_API_KEY}
+      STOCK_DB_HOST: postgres-stock
+      STOCK_DB_PORT: 5432
+      STOCK_DB_NAME: ${STOCK_DB_NAME}
+      STOCK_DB_USER: ${STOCK_DB_USER}
+      STOCK_DB_PASSWORD: ${STOCK_DB_PASSWORD}
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./include:/opt/airflow/include
+    entrypoint: ["bash", "-c", "exec airflow db upgrade && exec airflow users create -u $$_AIRFLOW_WWW_USER_USERNAME -p $$_AIRFLOW_WWW_USER_PASSWORD -f Admin -l User -r Admin -e admin@example.com || true"]
+
+  airflow-webserver:
+    build:
+      context: .
+      dockerfile: ./docker/airflow/Dockerfile
+    image: custom-airflow:latest
+    container_name: airflow-webserver
+    depends_on:
+      postgres-airflow:
+        condition: service_healthy
+      airflow-init:
+        condition: service_completed_successfully
+      postgres-stock:
+        condition: service_healthy
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow:5432/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'False'
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: 'True'
+      AIRFLOW_UID: 50000
+      # DAG env vars
+      ALPHAVANTAGE_API_KEY: ${ALPHAVANTAGE_API_KEY}
+      STOCK_DB_HOST: postgres-stock
+      STOCK_DB_PORT: 5432
+      STOCK_DB_NAME: ${STOCK_DB_NAME}
+      STOCK_DB_USER: ${STOCK_DB_USER}
+      STOCK_DB_PASSWORD: ${STOCK_DB_PASSWORD}
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./include:/opt/airflow/include
+    ports:
+      - "8080:8080"
+    command: ["bash", "-c", "airflow webserver"]
+
+  airflow-scheduler:
+    build:
+      context: .
+      dockerfile: ./docker/airflow/Dockerfile
+    image: custom-airflow:latest
+    container_name: airflow-scheduler
+    depends_on:
+      postgres-airflow:
+        condition: service_healthy
+      airflow-init:
+        condition: service_completed_successfully
+      airflow-webserver:
+        condition: service_started
+      postgres-stock:
+        condition: service_healthy
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow:5432/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'False'
+      AIRFLOW_UID: 50000
+      # DAG env vars
+      ALPHAVANTAGE_API_KEY: ${ALPHAVANTAGE_API_KEY}
+      STOCK_DB_HOST: postgres-stock
+      STOCK_DB_PORT: 5432
+      STOCK_DB_NAME: ${STOCK_DB_NAME}
+      STOCK_DB_USER: ${STOCK_DB_USER}
+      STOCK_DB_PASSWORD: ${STOCK_DB_PASSWORD}
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./include:/opt/airflow/include
+    command: ["bash", "-c", "airflow scheduler"]
+
+volumes:
+  airflow_postgres_data:
+  stock_postgres_data:
+
+
