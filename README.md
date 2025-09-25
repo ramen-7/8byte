@@ -60,9 +60,10 @@ docker compose exec airflow-webserver airflow users create --username admin --pa
 
 6) Trigger the DAG `stock_pipeline_dag` manually for the first run, or wait for the schedule.
 
-6) Inspect data in Postgres (optional):
+6) Inspect data in Postgres:
 ```
 docker exec -it postgres-stock psql -U "$env:STOCK_DB_USER" -d "$env:STOCK_DB_NAME"
+
 -- then: SELECT * FROM public.stock_prices ORDER BY ts DESC LIMIT 10;
 ```
 
@@ -85,10 +86,6 @@ docker exec -it postgres-stock psql -U "$env:STOCK_DB_USER" -d "$env:STOCK_DB_NA
 - Database operations are transactional; failures roll back safely.
 - Upserts ensure idempotency on `(symbol, ts)`.
 
-### To Check entries, you may use this command
-``` 
-SELECT * FROM public.stock_prices ORDER BY ts DESC;
-```
 
 ### Scalability
 - Add more symbols by scheduling multiple DAG runs with different `STOCK_SYMBOL` environment variables or by extending the DAG to iterate over a list. LocalExecutor supports parallel tasks given adequate resources.
