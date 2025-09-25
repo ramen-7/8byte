@@ -62,9 +62,8 @@ docker compose exec airflow-webserver airflow users create --username admin --pa
 
 6) Inspect data in Postgres:
 ```
-docker exec -it postgres-stock psql -U "$env:STOCK_DB_USER" -d "$env:STOCK_DB_NAME"
+docker compose exec postgres-stock psql -U stock_user -d stocks -c "SELECT symbol, ts, open, high, low, close, volume FROM public.stock_prices ORDER BY ts DESC LIMIT 10;"
 
--- then: SELECT * FROM public.stock_prices ORDER BY ts DESC LIMIT 10;
 ```
 
 ### Architecture
